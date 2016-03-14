@@ -1,95 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Form-group-validation</title>
-	<!-- build:css styles/style.css -->
-	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<!-- endbuild -->
+    <meta charset="UTF-8">
+    <title>Form-group-validation</title>
+    <!-- build:css styles/style.css -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- endbuild -->
 
-	<style>
-		body {
-			margin: 100px;
-		}
-	</style>
+    <style>
+        body {
+            margin: 100px;
+        }
+    </style>
 </head>
 <body>
-	
 
-	<div id="angularTest" ng-controller="angularCtrl">
+
+<div id="angularTest" ng-controller="angularCtrl">
     <form name="testForm" ng-submit="submit()" class="form-horizontal">
-    	<div class="form-group">
-    		<div class="col-xs-offset-2 col-xs-10">
-    			<p>testForm.$valid: {{ testForm.$valid }}</p>
-    			<p>testForm.$dirty: {{ testForm.$dirty }}</p>
-					<p>testForm.list.$valid: {{ testForm.list.$valid }}</p>
-					<p>testForm.list.$dirty: {{ testForm.list.$dirty }}</p>
-				</div>
-    	</div>
-			<div class="form-group" ng-class="{ 'has-error': testForm.username.$invalid }">
-				<div class="col-xs-offset-2 col-xs-10">
-					<p>testForm.username.$valid: {{ testForm.username.$valid }}</p>
-					<p>testForm.username.$dirty: {{ testForm.username.$dirty }}</p>
-				</div>
-				<label class="col-xs-2 control-label">Username:</label>
-				<div class="col-xs-10">
-					<input class="form-control" type="text" name="username" ng-model="form.username" required minlength="2">
-				</div>
-			</div>
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <p>testForm.$valid: {{ testForm.$valid }}</p>
+                <p>testForm.$dirty: {{ testForm.$dirty }}</p>
+                <p>testForm.list.$valid: {{ testForm.list.$valid }}</p>
+                <p>testForm.list.$dirty: {{ testForm.list.$dirty }}</p>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error': testForm.username.$invalid }">
+            <div class="col-xs-offset-2 col-xs-10">
+                <p>testForm.username.$valid: {{ testForm.username.$valid }}</p>
+                <p>testForm.username.$dirty: {{ testForm.username.$dirty }}</p>
+            </div>
+            <label class="col-xs-2 control-label">Username:</label>
+            <div class="col-xs-10">
+                <input class="form-control" type="text" name="username" ng-model="form.username" required minlength="2">
+            </div>
+        </div>
 
-			<div class="form-group" form-group-validation="testForm" name="list" ng-class="{ 'has-error': testForm.list.$invalid }">
-				<div ng-repeat="item in form.list">
-					<div class="col-xs-offset-2 col-xs-10">
-						<p>testForm.{{ item.name }}.$valid: {{ testForm[item.name].$valid }}</p>
-						<p>testForm.{{ item.name }}.$dirty: {{ testForm[item.name].$dirty }}</p>
-					</div>
-					<label class="col-xs-2 control-label">{{ item.name }}:</label>
-					<div class="col-xs-10">
-						<input form-group-item class="form-control" type="text" name="{{ item.name }}" ng-model="item.model" required minlength="2">
-					</div>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<div class="col-xs-offset-2 col-xs-10">
-					<button class="btn" type="submit">submit</button>
-				</div>
-			</div>
-    	
+        <div class="form-group" form-group-validation="testForm" name="list"
+             ng-class="{ 'has-error': testForm.list.$invalid }">
+            <div ng-repeat="item in form.list">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <p>testForm.{{ item.name }}.$valid: {{ testForm[item.name].$valid }}</p>
+                    <p>testForm.{{ item.name }}.$dirty: {{ testForm[item.name].$dirty }}</p>
+                </div>
+                <label class="col-xs-2 control-label">{{ item.name }}:</label>
+                <div class="col-xs-10">
+                    <input form-group-item class="form-control" type="text" name="{{ item.name }}" ng-model="item.model"
+                           required minlength="2">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn" type="submit">submit</button>
+            </div>
+        </div>
+
     </form>
-  </div>
-	
-	
-	<!-- build:js scripts/app.js -->
-	<script src="../node_modules/angular/angular.min.js"></script>
-	
-	<script src="../src/form-group-validation.service.js"></script>
-	<script src="../src/form-group-validation.directive.js"></script>
-	<script src="../src/form-group-item.directive.js"></script>
-	<!-- endbuild -->
+</div>
 
-	<script>
-		var testModule = angular.module('angularTest', ['formGroup.validation']);
-    testModule.controller('angularCtrl', ['$scope', function($scope) {
 
-    	$scope.form = {
-    		username: '',
-    		list: [{
-    			name: 'item1',
-    			model: 'item1'
-    		}, {
-					name: 'item2',
-    			model: 'item2'
-    		}]
-    	};
+<!-- build:js scripts/app.js -->
+<script src="../node_modules/angular/angular.min.js"></script>
 
-      $scope.submit = function() {
-      	console.log('submit');
-      };
+<script src="../src/form-group-validation.service.js"></script>
+<script src="../src/form-group-validation.directive.js"></script>
+<script src="../src/form-group-item.directive.js"></script>
+<!-- endbuild -->
+
+<script>
+    var testModule = angular.module('angularTest', ['formGroup.validation']);
+    testModule.controller('angularCtrl', ['$scope', function ($scope) {
+
+        $scope.form = {
+            username: '',
+            list: [{
+                name: 'item1',
+                model: 'item1'
+            }, {
+                name: 'item2',
+                model: 'item2'
+            }]
+        };
+
+        $scope.submit = function () {
+            console.log('submit');
+        };
     }]);
-    
+
     var test = document.getElementById('angularTest');
     angular.bootstrap(angular.element(test), ['angularTest']);
-	</script>
+</script>
 </body>
 </html>
