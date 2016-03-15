@@ -72,7 +72,7 @@
 
 <script>
     var testModule = angular.module('angularTest', ['formGroup.validation']);
-    testModule.controller('angularCtrl', ['$scope', function ($scope) {
+    testModule.controller('angularCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
         $scope.form = {
             username: '',
@@ -84,6 +84,13 @@
                 model: 'item2'
             }]
         };
+
+        $timeout(function() {
+            $scope.form.list.push({
+                name: 'item3',
+                model: 'item3'
+            });
+        }, 5000);
 
         $scope.submit = function () {
             console.log('submit');
