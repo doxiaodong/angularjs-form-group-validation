@@ -4,4 +4,4 @@
 
 ### 在线测试
 
-* http://example.darlin.me/form-group-validation/index.html
+* https://doxiaodong.github.io/form-group-validation/

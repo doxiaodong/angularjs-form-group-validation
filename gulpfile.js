@@ -20,16 +20,16 @@ gulp.task('html', function () {
     .pipe($.if('*.css', $.rev()))
     .pipe($.if('*.html', $.minifyHtml({ empty: true })))
     .pipe($.revReplace())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('docs'));
 });
 
 gulp.task('clean', function(done) {
-	return $.del(['build/'], done);
+	return $.del(['docs/'], done);
 });
 
 gulp.task('fonts', function() {
   return gulp.src('mode_modules/bootstrap/fonts/*.{eot,svg,ttf,woff,woff2}')
-    .pipe(gulp.dest('build/fonts/'));
+    .pipe(gulp.dest('docs/fonts/'));
 });
 
 // < gulp 4.0
