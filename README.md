@@ -4,4 +4,4 @@
 
 ### 在线测试
 
-* https://doxiaodong.github.io/form-group-validation/
+* https://doxiaodong.github.io/angularjs-form-group-validation/
